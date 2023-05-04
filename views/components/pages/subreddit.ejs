@@ -1,0 +1,31 @@
+<% if(singlecount) { %>
+    <div class="card mx-auto p-1" style="width:25rem;">
+      <h5 class="card-title"><%= memes.title %></h5>
+      <img src="<%= memes.preview.pop() %>" class="card-img-top" alt="memes">
+      <div class="card-body">
+        <span class="card-text sm"> UpVotes: <%= memes.ups %> </p>
+        <span class="card-text sm"> SubReddit: <%= memes.subreddit %> </p>
+        <span class="card-text sm"> By: <%= memes.author %> </p>
+        <span class="card-text sm"> ID: <%= memes.id %> </p>
+        <a href="<%= memes.postLink %>" class="btn btn-primary">Source</a>
+      </div>
+    </div>
+ <% } else { %>
+  <% for(meme of memes) {%>
+    <% if(meme.nsfw == false) { %>
+      <br/>
+      <div class="card mx-auto p-2" style="width:25rem;">
+        <h5 class="card-title"><%= meme.title %></h5>
+        <img src="<%= meme.preview.pop() %>" class="card-img-top" alt="memes">
+        <div class="card-body">
+          <span class="card-text sm"> UpVotes: <%= meme.ups %> </p>
+          <span class="card-text sm"> SubReddit: <%= meme.subreddit %> </p>
+          <span class="card-text sm"> By: <%= meme.author %> </p>
+          <span class="card-text sm"> ID: <%= meme.id %> </p>
+          <a href="<%= meme.postLink %>" class="btn btn-primary">Source</a>
+        </div>
+      </div>
+      <br/>
+        <% } %>
+    <% } %>
+  <% } %>
